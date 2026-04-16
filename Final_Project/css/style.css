@@ -1,0 +1,200 @@
+/*
+    style.css
+*/
+/* -------------------------------------------------------------- */
+/* Color Rules */
+:root {
+  --primary-color: #5f8ee4;   /* color-1 */
+  --text-color: #19191a;      /* color-2 */
+  --accent-color: #e4655f;    /* color-3 */
+  --surface-color: #e6e6e6;   /* color-4 */
+  --background-color: #ffffff;/* color-5 */
+--primary-font: 'Merriweather', serif;
+--secondary-font: 'Open Sans', sans-serif;
+}
+/* -------------------------------------------------------------- */
+/* Page Level Rules */
+
+/* grid container */
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto auto auto auto;
+  grid-template-areas:
+    "head head"
+    "Fall2025 Fall2025_img"
+    "Spring2025 Spring2025_img"
+    "Fall2024 Fall2024_img"
+    "foot foot";
+  gap: 20px;
+  border: 3px red solid;
+  padding: 5px;
+}
+@media screen and (max-width: 600px) {
+  .grid-container{
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto auto auto auto auto;
+    grid-template-areas:
+      "head"
+      "Fall2025"
+      "Fall2025_img"
+      "Spring2025"
+      "Spring2025_img"
+      "Fall2024"
+      "Fall2024_img"
+      "foot";
+  }
+.img-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;  
+}
+}
+
+header { grid-area: head; }
+#Fall2025 { grid-area: Fall2025; }
+#Fall2025_img { grid-area: Fall2025_img; }
+#Spring2025 { grid-area: Spring2025; }
+#Spring2025_img { grid-area: Spring2025_img; }
+#Fall2024 { grid-area: Fall2024; }
+#Fall2024_img { grid-area: Fall2024_img; }
+footer { grid-area: foot; }
+
+/* grid items */
+/* the '>' means that this only effects a div that is the direct descendant of the 
+   container.
+*/
+
+.grid-container > section{
+   padding: 10px;
+   border: 3px blue solid;
+   background-color: #6C9B89;
+   color: #FFFFFF;
+}
+
+/* -------------------------------------------------------------- */
+/* Section Level Rules */
+p {
+	color:var(--text_color);
+}
+
+h1 {
+	/* color: #00241B; */
+	color:var(--text_color);
+}
+
+h2 {
+	color:var(--accent_color);
+}
+h3{
+	color:var(--text_color);
+}
+
+header {
+	background-color: var(--primary_color);
+	grid-area: head
+}
+
+footer {
+	background-color:var(--accent_color);
+	grid-area: foot;
+}
+/* -------------------------------------------------------------- */
+/* Text Rules */
+
+/* utility class to center text */
+.text-center {
+    text-align: center;
+    color:red;
+}
+
+.img-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;  
+}
+
+/* -------------------------------------------------------------- */
+/* Button Rules */
+.button {
+  background-color: #B79492; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.color {
+	background-color: #917C78;
+}
+.footer-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "resume linkedin instagram";
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.resume-card { grid-area: resume; }
+.linkedin-card { grid-area: linkedin; }
+.instagram-card { grid-area: instagram; }
+
+/* Card styling */
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.card-img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.card-content h2 {
+  font-family: 'Playfair Display', serif;
+  margin-top: 0;
+}
+
+.card-content {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* Responsive stacking */
+@media screen and (max-width: 600px) {
+  .footer-card-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "resume"
+      "linkedin"
+      "instagram";
+  }
+}
+/* Grid placement */
+#Fall2025_video {
+  grid-area: Fall2025_img;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Video styling */
+.video-player {
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+
+
